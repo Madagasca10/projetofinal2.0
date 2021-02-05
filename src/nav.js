@@ -3,23 +3,23 @@ import {Link} from 'react-router-dom';
 
 function Nav(){
     const NavStyle = {
-        color:'#49F2C2'
+        color:'#f70505'
     }
     return(
         
         <nav>
             <ul className="nav-links">
                 <Link style={NavStyle} to="/RecipesPage">
-                <img src="/images/recipes.png"></img>
+                <img src="/images/3646233-200.png"></img>
                 </Link>
                 <Link style={NavStyle} to="/Favorites">
-                    <img src="/images/heart.png"></img>
+                    <img src="/images/1383774-200.png"></img>
                 </Link>
                 <Link style={NavStyle} to="/Registration">
-                    <img src="/images/registration.png"></img>
+                    <img src="/images/2018816-200.png"></img>
                 </Link>
                 <Link style={NavStyle} to="/login">
-                    <img src="/images/login.png"></img>
+                    <img src="/images/3710907-200.png"></img>
                 </Link>
             </ul>
         </nav>

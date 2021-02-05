@@ -4,58 +4,19 @@ import "./App.css";
 
 /* Use Effect dá fecth da API e a useState usa-a */
 
-const Recipes = () =>{
-    const APP_ID = "f4221e67";
-    const APP_KEY = "166596d698ce89c3ca27985684000420";
-  
-    const[recipes, setRecipes] = useState([]);
-    const[search, setSearch] = useState('');
-    const[query, setQuery] = useState('');
-  
-    useEffect(() => { 
-      getRecipes();    
-    }, [query]);
-  
-    const getRecipes = async() =>{
-    const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
-    const data =await response.json(); 
-    setRecipes(data.hits);
-    /* console.log(data.hits); */
-    }
-  
-  
-    const updateSearch = e =>{
-      setSearch(e.target.value);
-    }
-  
-    const getSearch = e =>{
-      e.preventDefault();
-      setQuery(search);
-      setSearch("");
-    }
+const data = null;
 
-   return(
-      
-    <div className="Recipes">
+const xhr = new XMLHttpRequest();
+xhr.withCredentials = true;
 
-      <h1 className="title">Search for the food</h1>
-      <form className="search-form" onSubmit={getSearch}>
-        <input className="search-bar" type="text" value={search} onChange={updateSearch}></input>
-        <button className="search-button" type="submit"> Search </button>
-      </form> 
-      <div className="recipes">
-      {recipes.map(recipe =>(
-        <Recipe 
-        key={recipe.recipe.label}
-        title={recipe.recipe.label} 
-        calories={recipe.recipe.calories}
-        image={recipe.recipe.image}
-        ingredients={recipe.recipe.ingredients}/>
-      )
-      ) }
-      </div>
-    </div>
-  );
-};
+xhr.addEventListener("readystatechange", function () {
+	if (this.readyState === this.DONE) {
+		console.log(this.responseText);
+	}
+});
 
-export default Recipes;
+xhr.open("GET", "https://yummly2.p.rapidapi.com/feeds/search?start=0&maxResult=18&FAT_KCALMax=1000&maxTotalTimeInSeconds=7200&allowedAttribute=diet-lacto-vegetarian%2Cdiet-low-fodmap&q=chicken%20soup");
+xhr.setRequestHeader("x-rapidapi-key", "2faf8cc67cmshcfec2a63d28bcc7p112444jsn5df50d9eb123");
+xhr.setRequestHeader("x-rapidapi-host", "yummly2.p.rapidapi.com");
+
+xhr.send(data);

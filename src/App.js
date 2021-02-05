@@ -31,7 +31,7 @@ import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
       <div>
         <h1>Recipies</h1>
         <h2>Search for your favorite food and get the best recipies</h2>
-        <img src="/Images/food.png"></img>
+        <img src="/Images/Tacho.png"></img>
         <h4>Click on the list and search for your recipe and feels free to create an account</h4>
 
       </div>
